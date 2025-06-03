@@ -1,4 +1,4 @@
-const API_KEY = "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";
+/* const API_KEY = "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";
 // Función para calcular el costo estimado
 function calculateCost(promptLength, responseLength, model = "gpt-3.5-turbo") {
   const tokens = promptLength + responseLength;
@@ -140,3 +140,4 @@ function renderChat() {
     .join("");
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
+ */
