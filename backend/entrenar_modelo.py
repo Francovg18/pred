@@ -7,7 +7,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 import joblib
 
 # Cargar archivo
-archivo = 'emocional2.xlsx'
+archivo = 'finalAA.xlsx'
 df = pd.read_excel(archivo)
 
 # Filtrar valores válidos
@@ -27,7 +27,7 @@ smote = SMOTE(random_state=42)
 X_train_bal, y_train_bal = smote.fit_resample(X_train, y_train)
 
 # Entrenar modelo KNN con k=4
-modelo = KNeighborsClassifier(n_neighbors=4)
+modelo = KNeighborsClassifier(n_neighbors=17)
 modelo.fit(X_train_bal, y_train_bal)
 
 # Evaluación
@@ -41,4 +41,4 @@ print(confusion_matrix(y_test, y_pred, labels=modelo.classes_))
 
 # Guardar modelo
 joblib.dump({'modelo': modelo, 'clases': modelo.classes_}, 'modelo_emocional2.pkl')
-print("\n✅ Modelo KNN (k=4) guardado como 'modelo_emocional2.pkl'")
+print("\n✅ Modelo KNN (k=17) guardado como 'modelo_emocional2.pkl'")
