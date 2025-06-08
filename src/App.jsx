@@ -4,7 +4,7 @@ import Nav from "./componentes/Nav.jsx";
 import Inicio from "./pages/Inicio";
 import SobreNosotros from "./pages/SobreNosotros";
 import Contacto from "./pages/Contacto.jsx";
-
+import Nota from './componentes/Nota.jsx'
 function App() {
   return (
     <Router>
@@ -14,6 +14,7 @@ function App() {
           <Route path="/*" element={<Inicio />} />
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/nota" element={<Nota />} />
         </Routes>
       </div>
     </Router>
