@@ -15,8 +15,8 @@ clases = data['clases']
 def predecir():
     try:
         respuestas = request.json.get('respuestas', [])
-        if len(respuestas) != 15:
-            return jsonify({'error': "Por favor, responde las 15 preguntas."}), 400
+        if len(respuestas) != 7:
+            return jsonify({'error': "Por favor, responde las 7 preguntas."}), 400
         if any(r < 1 or r > 5 for r in respuestas):
             return jsonify({'error': "Las respuestas deben estar entre 1 y 5."}), 400
 
@@ -27,16 +27,29 @@ def predecir():
         estado_con_emoji = {
             "Feliz": "Feliz 😄",
             "Neutral": "Neutral 😐",
-            "Preocupado": "Preocupado 😟",
-            "Desmotivado": "Desmotivado 😞"
+            "Decepcionado": "Decepcionado 😟",
+            "Frustrado": "Frustrado 😞"
         }
 
         recomendaciones = {
-            "Feliz": ["Sigue así, mantén tus hábitos positivos.", "Comparte tu estado con otros, puede inspirarlos."],
-            "Neutral": ["Considera incluir actividades nuevas en tu rutina.", "Reflexiona sobre lo que te da bienestar."],
-            "Preocupado": ["Practica técnicas de relajación.", "Habla con alguien de confianza."],
-            "Desmotivado": ["Establece metas pequeñas y alcanzables.", "Busca apoyo emocional en tu entorno."]
+            "Feliz": [
+                "Explora nuestras ofertas especiales, ¡tal vez encuentres algo que te encante!",
+                "Aprovecha tu buen ánimo para dejar una reseña positiva en tus productos favoritos."
+            ],
+            "Neutral": [
+                "Revisa nuestras recomendaciones personalizadas, podrían interesarte.",
+                "Activa las notificaciones para no perderte promociones especiales."
+            ],
+            "Decepcionado": [
+                "¿Tuviste una mala experiencia? Nuestro equipo de soporte está aquí para ayudarte.",
+                "Explora productos con altas valoraciones, podrían mejorar tu experiencia."
+            ],
+            "Frustrado": [
+                "¿Buscas algo específico? Usa nuestros filtros o el chat de ayuda.",
+                "Tal vez nuestros productos más vendidos te den una mejor experiencia de compra."
+            ]
         }
+
 
         return jsonify({
             'estado_emocional': estado_con_emoji.get(prediccion, prediccion),
