@@ -1,6 +1,6 @@
 function Header({ progreso }) {
   if (typeof progreso === "number") {
-    const progresoPorcentaje = Math.round((progreso / 15) * 100);
+    const progresoPorcentaje = Math.round((progreso / 7) * 100);
 
     return (
       <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#1e1e2f] via-[#2a2a40] to-[#1e1e2f] backdrop-blur-sm border-b border-white/10 px-6 py-2 shadow-md flex flex-col md:flex-row md:justify-between md:items-center text-white gap-2">
@@ -15,7 +15,7 @@ function Header({ progreso }) {
           <div className="flex flex-col items-end text-sm text-right">
             <span className="text-gray-300 font-medium tracking-tight">Progreso del formulario</span>
             <span className="text-l font-bold text-green-300">
-              {progreso} / 15 preguntas
+              {progreso} / 7 preguntas
             </span>
           </div>
 
