@@ -9,39 +9,31 @@ function Formulario() {
 
   const sections = [
     {
-      title: "Estado Emocional Positivo",
-      icon: "😎",
+      title: "Expectativas de Compra",
+      icon: "🛍️",
       gradient: "from-blue-600 via-blue-700 to-indigo-800",
       questions: [
-        "Me siento feliz y satisfecho/a con mi vida en este momento.",
-        "Tengo la energía suficiente para realizar mis actividades diarias.",
-        "Me siento optimista respecto a mi futuro.",
-        "Disfruto de las actividades que realizo diariamente.",
-        "Me siento valorado/a por las personas cercanas a mí.",
+        "¿Qué tan emocionado estás por encontrar algo nuevo hoy?",
+        "¿Qué tan satisfecho quedaste con tus últimas compras online?",
       ],
     },
     {
-      title: "Estado Emocional Negativo",
-      icon: "😠",
+      title: "Dificultades en la Navegación",
+      icon: "🧭",
       gradient: "from-red-600 via-red-700 to-red-900",
       questions: [
-        "Me siento estresado/a o abrumado/a con frecuencia.",
-        "Me cuesta concentrarme en mis actividades diarias.",
-        "Me siento desanimado/a con frecuencia.",
-        "Tengo dificultades para manejar mis emociones.",
-        "Me siento solo/a con frecuencia.",
+        "¿Te demoras mucho al encontrar los productos que quieres?",
+        "¿Qué tan seguro estás de que hoy encontrarás algo que te guste?",
+        "¿Tus experiencias de compra en línea suelen ser positivas o negativas?",
       ],
     },
     {
-      title: "Ansiedad y Preocupación",
-      icon: "😰",
+      title: "Confianza y Soporte",
+      icon: "🤝",
       gradient: "from-orange-600 via-red-600 to-red-800",
       questions: [
-        "Me preocupo en exceso por problemas o situaciones.",
-        "Tengo dificultades para dormir debido a preocupaciones.",
-        "Me siento ansioso/a incluso sin una razón clara.",
-        "Me siento constantemente en alerta o tenso/a.",
-        "Experimento síntomas físicos como palpitaciones o sudoración.",
+        "¿Te sientes estresado/a o abrumado/a al realizar compras en línea?",
+        "¿Te sentiste apoyado/a o asistido/a durante tus compras en linea?, Soporte, confianza",
       ],
     },
   ];
@@ -57,7 +49,7 @@ function Formulario() {
     event.preventDefault();
     setIsSubmitting(true);
 
-    const respuestas = Array.from({ length: 15 }, (_, i) =>
+    const respuestas = Array.from({ length: 7 }, (_, i) =>
       responses[`pregunta_${i + 1}`] || 1
     );
 
@@ -84,7 +76,7 @@ function Formulario() {
     }
   };
 
-  const isFormComplete = () => Object.keys(responses).length === 15;
+  const isFormComplete = () => Object.keys(responses).length === 7;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
@@ -106,7 +98,7 @@ function Formulario() {
               Análisis Emocional
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Responde las 15 preguntas y conoce tu estado emocional actual
+              Responde las 7 preguntas y conoce tu estado emocional 
             </p>
           </div>
 
@@ -191,7 +183,7 @@ function Formulario() {
             </div>
 
             <div className="text-center text-gray-400 text-sm mt-4">
-              Progreso: {Object.keys(responses).length}/15 preguntas completadas
+              Progreso: {Object.keys(responses).length}/7 preguntas completadas
             </div>
           </form>
         </div>
